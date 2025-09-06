@@ -24,13 +24,13 @@ function resizeCanvas() {
 }
 
 window.addEventListener("keydown", (event) => {
-    if(event.key === "w") {
+    if(event.code === "KeyW" || event.code === "ArrowUp") {
         Player.setPos(Player.position.x, Player.position.y - 1);
-    } else if(event.key === "a") {
+    } else if(event.code === "KeyA" || event.code === "ArrowLeft") {
         Player.setPos(Player.position.x - 1, Player.position.y);
-    } else if(event.key === "s") {
+    } else if(event.code === "KeyS" || event.code === "ArrowDown") {
         Player.setPos(Player.position.x, Player.position.y + 1);
-    } else if(event.key === "d") {
+    } else if(event.code === "KeyD" || event.code === "ArrowRight") {
         Player.setPos(Player.position.x + 1, Player.position.y);
     }
 
