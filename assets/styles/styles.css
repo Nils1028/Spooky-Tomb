@@ -1,0 +1,14 @@
+body {
+    background-image: url("../images/Dungeon_brick_wall_blue.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#board {
+    border: 5px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
