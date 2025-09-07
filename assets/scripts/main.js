@@ -6,8 +6,12 @@ window.addEventListener('load', function() {
     canvas.height = GAME.height;
 
     resizeCanvas();
-
-    Player.init(ctx);
+    
+    while(!resources.images.explorpheus.isLoaded)
+    {
+        console.log("Wait for download resource");
+    }
+    Player.draw(ctx);
 });
 
 window.addEventListener('resize', resizeCanvas);
