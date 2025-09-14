@@ -28,7 +28,7 @@ function resizeCanvas() {
 }
 
 function update() {
-
+    
 }
 
 function draw() {

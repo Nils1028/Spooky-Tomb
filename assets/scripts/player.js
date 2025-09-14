@@ -1,5 +1,5 @@
 const Player = {
-    position: {x: 0, y: 0},
+    position: new Vector2(0, 0),
 
     draw(ctx) {
         if(resources.images.explorpheus.isLoaded) {
