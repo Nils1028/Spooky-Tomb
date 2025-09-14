@@ -1,0 +1,7 @@
+const CELL_SIZE = 16
+const COLUMS = 30;
+const ROWS = 15;
+const GAME = {
+    width: COLUMS * CELL_SIZE,
+    height: ROWS * CELL_SIZE,
+}
