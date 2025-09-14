@@ -14,11 +14,12 @@ window.addEventListener('load', function() {
         console.log("Wait for download resource");
     }
     ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(resources.images.map.image, 0, 0, 45 * CELL_SIZE, 45 * CELL_SIZE);
     Player.draw(ctx);
 });
 
 function resizeCanvas() {
-    const margin = 20;
+    const margin = 0;
 
     const scaleX = (window.innerWidth - margin * 2) / GAME.width;
     const scaleY = (window.innerHeight - margin * 2) / GAME.height;

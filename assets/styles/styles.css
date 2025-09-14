@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: #070707;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -8,9 +8,9 @@ body {
 }
 
 #board {
-    border: 5px solid black;
     position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+    background: #070707;
 }
