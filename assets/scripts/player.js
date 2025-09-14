@@ -30,5 +30,6 @@ window.addEventListener("keydown", (event) => {
     }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(resources.images.map.image, 0, 0, GAME.width, GAME.width);
     Player.draw(ctx);
 })

@@ -9,10 +9,11 @@ window.addEventListener('load', function() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
-    while(!resources.images.explorpheus.isLoaded)
+    while(!resources.images.explorpheus.isLoaded && !resources.images.map.isLoaded)
     {
         console.log("Wait for download resource");
     }
+    ctx.imageSmoothingEnabled = false;
     Player.draw(ctx);
 });
 
