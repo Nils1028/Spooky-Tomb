@@ -28,8 +28,4 @@ window.addEventListener("keydown", (event) => {
     } else if(event.code === "KeyD" || event.code === "ArrowRight") {
         Player.setPos(Player.position.x + 1, Player.position.y);
     }
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(resources.images.map.image, 0 - Player.position.x * CELL_SIZE, 0 - Player.position.y * CELL_SIZE, 45 * CELL_SIZE, 45 * CELL_SIZE);
-    Player.draw(ctx);
 })

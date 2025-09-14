@@ -1,22 +1,20 @@
 const canvas = this.document.getElementById("board");
 const ctx = canvas.getContext("2d");
+const gameLoop = new GameLoop(update, draw);
 
-// Init
-window.addEventListener('load', function() {
+function init() {
     canvas.width = GAME.width;
     canvas.height = GAME.height;
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
     
     while(!resources.images.explorpheus.isLoaded && !resources.images.map.isLoaded)
     {
-        console.log("Wait for download resource");
+        console.log("Wait for resources");
     }
+
     ctx.imageSmoothingEnabled = false;
-    ctx.drawImage(resources.images.map.image, 0, 0, 45 * CELL_SIZE, 45 * CELL_SIZE);
-    Player.draw(ctx);
-});
+}
 
 function resizeCanvas() {
     const margin = 0;
@@ -29,12 +27,15 @@ function resizeCanvas() {
     canvas.style.height = GAME.height * scale + "px";
 }
 
-// Game loop
+function update() {
 
-gameLoop = (timestamp) => {
-    console.log("Test");
-
-    requestAnimationFrame(this.gameLoop)
 }
 
-requestAnimationFrame(this.gameLoop)
+function draw() {
+    ctx.drawImage(resources.images.map.image, -Player.position.x * CELL_SIZE, -Player.position.y * CELL_SIZE, 45 * CELL_SIZE, 45 * CELL_SIZE);
+    Player.draw(ctx);
+}
+
+window.addEventListener('load', init);
+window.addEventListener('resize', resizeCanvas);
+gameLoop.start();
