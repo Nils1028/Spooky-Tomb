@@ -1,25 +1,25 @@
 const canvas = this.document.getElementById("board");
 const ctx = canvas.getContext("2d");
+
+canvas.width = GAME.width;
+canvas.height = GAME.height;
+ctx.imageSmoothingEnabled = false;
+
 const gameLoop = new GameLoop(update, draw);
 const mainScene = new GameObject(new Vector2(0, 0));
-const orpheus = new Orpheus(0, 0);
+
+const map = new Sprite({
+    resource: resources.images.map,
+    frameSize: new Vector2(45 * CELL_SIZE, 45 * CELL_SIZE),
+});
+mainScene.addChild(map);
+
+const orpheus = new Orpheus(9, 24);
 mainScene.addChild(orpheus);
+
 const camera = new Camera();
+camera.position = new Vector2(-9 * CELL_SIZE + -8 + canvas.width / 2, -24 * CELL_SIZE + -8 + canvas.height / 2)
 mainScene.addChild(camera);
-
-function init() {
-    canvas.width = GAME.width;
-    canvas.height = GAME.height;
-
-    resizeCanvas();
-    
-    while(!resources.images.explorpheus.isLoaded && !resources.images.map.isLoaded)
-    {
-        console.log("Wait for resources");
-    }
-
-    ctx.imageSmoothingEnabled = false;
-}
 
 function resizeCanvas() {
     const margin = 0;
@@ -41,12 +41,11 @@ function draw() {
     ctx.save();
     ctx.translate(camera.position.x, camera.position.y);
 
-    ctx.drawImage(resources.images.map.image, 0, 0, 45 * CELL_SIZE, 45 * CELL_SIZE);
     mainScene.draw(ctx, 0, 0);
 
     ctx.restore();
 }
 
-window.addEventListener('load', init);
+resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 gameLoop.start();

@@ -12,8 +12,6 @@ class GameLoop {
     }
 
     gameLoop = (timestamp) => {
-        console.log("Frame started");
-        
         if(!this.isRunning) {
             return;
         }
