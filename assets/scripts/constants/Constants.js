@@ -1,4 +1,3 @@
-const CELL_SIZE = 16
 const COLUMS = 30;
 const ROWS = 15;
 const GAME = {

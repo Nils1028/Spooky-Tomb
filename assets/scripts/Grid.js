@@ -25,3 +25,7 @@ function moveTowards(objectToMove, destPos, speed) {
 
     return distance;
 }
+
+function isFree(positions, posToCheck) {
+    return !positions.has(posToCheck.x + "," + posToCheck.y);
+}

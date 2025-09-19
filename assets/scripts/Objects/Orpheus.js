@@ -57,23 +57,29 @@ class Orpheus extends GameObject {
             return;
         }
 
+        let nextDest = this.destPos;
+
         if(this.direction === UP) {
-            this.destPos = new Vector2(this.position.x, this.position.y - CELL_SIZE);
+            nextDest = new Vector2(this.position.x, this.position.y - CELL_SIZE);
         }
         if(this.direction === LEFT) {
-            this.destPos = new Vector2(this.position.x - CELL_SIZE, this.position.y);
+            nextDest = new Vector2(this.position.x - CELL_SIZE, this.position.y);
         }
         if(this.direction === DOWN) {
-            this.destPos = new Vector2(this.position.x, this.position.y + CELL_SIZE);
+            nextDest = new Vector2(this.position.x, this.position.y + CELL_SIZE);
         }
         if(this.direction === RIGHT) {
-            this.destPos = new Vector2(this.position.x + CELL_SIZE, this.position.y);
+            nextDest = new Vector2(this.position.x + CELL_SIZE, this.position.y);
+        }
+
+        if(isFree(BLOCKED_POSITIONS, nextDest)) {
+            this.destPos = nextDest;
         }
     }
 
     step(delta) {
-        const distance = moveTowards(this, this.destPos, 1);
-        console.log(this.position);
+        const distance = moveTowards(this, this.destPos, 2);
+        console.log(this.position.x + "," + this.position.y);
         const hasArrived = distance <= 1;
         if(hasArrived) {
             this.position.x = this.destPos.x;
