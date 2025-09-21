@@ -98,7 +98,7 @@ class Orpheus extends GameObject {
         events.emit(ORPHEUS_MOVED, this.position);
     }
 
-    draw(ctx) {
+    drawImage(ctx, drawPosX, drawPosY) {
         if(resources.images.explorpheus.isLoaded) {
             ctx.drawImage(resources.images.explorpheus.image, this.position.x, this.position.y, CELL_SIZE, CELL_SIZE);
         }

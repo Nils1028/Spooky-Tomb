@@ -1,5 +1,6 @@
 const CELL_SIZE = 16
 const BLOCKED_POSITIONS = new Set();
+const INTERACTION_POSITIONS = new Set();
 
 // Upper Pillar
 BLOCKED_POSITIONS.add("272,352");
@@ -132,3 +133,7 @@ for(i = 240; i <= 304; i += CELL_SIZE) {
 for(i = 240; i <= 336; i += CELL_SIZE) {
     BLOCKED_POSITIONS.add(i + ",512");
 }
+
+//
+INTERACTION_POSITIONS.add("80,272");
+INTERACTION_POSITIONS.add("96,272");

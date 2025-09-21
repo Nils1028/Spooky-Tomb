@@ -2,6 +2,7 @@ class Resources {
     constructor() {
         this.toLoad = {
             explorpheus: "./assets/images/explorpheus.png",
+            book: "./assets/images/Openbook.png",
             map_ground: "./assets/images/Map/Ground.png",
             map_entrances: "./assets/images/Map/Entrances.png",
             map_borders: "./assets/images/Map/Borders.png",

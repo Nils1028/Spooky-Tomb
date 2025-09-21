@@ -20,7 +20,7 @@ class SpeechBubble extends GameObject {
         });
     }
 
-    draw(ctx) {
+    drawImage(ctx, drawPosX, drawPosY) {
         const bubble = document.getElementById("bubble");
 
         if(this.isOpen) {
