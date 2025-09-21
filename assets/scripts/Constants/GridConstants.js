@@ -1,6 +1,10 @@
 const CELL_SIZE = 16
 const BLOCKED_POSITIONS = new Set();
 const INTERACTION_POSITIONS = new Set();
+const UPPER_EXIT_POSITIONS = new Set();
+const UPPER_EXIT_2_POSITIONS = new Set();
+const RIGHT_EXIT_POSITIONS = new Set();
+const LOWER_EXIT_POSITIONS = new Set();
 
 // Upper Pillar
 BLOCKED_POSITIONS.add("272,352");

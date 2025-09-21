@@ -31,7 +31,13 @@ class Text extends GameObject {
 
     drawImage(ctx, drawPosX, drawPosY) {
         if(this.pressedOpenKey && this.isInteractionPos) {
-            ctx.drawImage(resources.images.book.image, this.position.x - (164 / 2), this.position.y - (110 / 2), 164, 110);
+            // Book img
+            ctx.drawImage(resources.images.book.image, this.position.x - 164, this.position.y - 110, 164 * 2, 110 * 2);
+            
+            // Text
+            ctx.textRendering = 'geometricPrecision';
+            const path = resources.pixelOperator.getPath("Hello, World!", this.position.x, this.position.y, 8);
+            path.draw(ctx);
         } else {
             this.speechBubble.drawImage(ctx, drawPosX, drawPosY);
         }

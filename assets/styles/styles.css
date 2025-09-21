@@ -12,6 +12,7 @@ body {
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+    image-rendering: pixelated;
     background: #070707;
     z-index: 1;
 }

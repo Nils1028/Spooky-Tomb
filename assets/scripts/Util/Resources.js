@@ -14,6 +14,7 @@ class Resources {
             map_pillars_OTOP: "./assets/images/Map/Pillars (On top of Player).png",
         };
 
+        this.pixelOperator = null;
         this.images = {};
 
         Object.keys(this.toLoad).forEach(key => {
@@ -27,6 +28,21 @@ class Resources {
                 this.images[key].isLoaded = true;
             }
         })
+    }
+
+    async loadFont() {
+        try {
+            const response = await fetch('./assets/data/PixelOperator8.ttf');
+            if(!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const buffer = await response.arrayBuffer();
+            this.pixelOperator = opentype.parse(buffer);
+
+        } catch(err) {
+            console.error('Error while loading font:', err);
+        }
     }
 }
 
