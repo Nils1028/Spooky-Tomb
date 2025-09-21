@@ -1,3 +1,5 @@
+const DEBUG = true;
+
 const COLUMS = 30;
 const ROWS = 15;
 const GAME = {

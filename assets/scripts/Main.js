@@ -41,6 +41,9 @@ mainScene.addChild(pillars);
 const orpheus = new Orpheus(gridCells(9), gridCells(24));
 mainScene.addChild(orpheus);
 
+const speechBubble = new SpeechBubble()
+mainScene.addChild(speechBubble);
+
 const entrances_otop = new Sprite({
     resource: resources.images.map_entraces_OTOP,
     frameSize: new Vector2(gridCells(45), gridCells(45)),
