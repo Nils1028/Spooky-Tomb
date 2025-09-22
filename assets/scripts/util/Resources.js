@@ -15,6 +15,7 @@ class Resources {
         };
 
         this.pixelOperator = null;
+        this.texts = null;
         this.images = {};
 
         Object.keys(this.toLoad).forEach(key => {
@@ -32,7 +33,7 @@ class Resources {
 
     async loadFont() {
         try {
-            const response = await fetch('./assets/data/PixelOperator8.ttf');
+            const response = await fetch("./assets/data/PixelOperator8.ttf");
             if(!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -42,6 +43,19 @@ class Resources {
 
         } catch(err) {
             console.error('Error while loading font:', err);
+        }
+    }
+
+    async loadTexts() {
+        try {
+            const response = await fetch("./assets/data/Texts.json");
+            if(!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            this.texts = await response.json();
+        } catch(err) {
+            console.error('Error while loading json:', err);
         }
     }
 }

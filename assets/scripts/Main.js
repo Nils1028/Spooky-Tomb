@@ -6,6 +6,7 @@ canvas.height = GAME.height;
 ctx.imageSmoothingEnabled = false;
 
 resources.loadFont();
+resources.loadTexts();
 
 const gameLoop = new GameLoop(update, draw);
 const mainScene = new GameObject(new Vector2(0, 0));
@@ -43,9 +44,6 @@ mainScene.addChild(pillars);
 const orpheus = new Orpheus(gridCells(9), gridCells(24));
 mainScene.addChild(orpheus);
 
-const textDisplay = new Text();
-mainScene.addChild(textDisplay);
-
 const entrances_otop = new Sprite({
     resource: resources.images.map_entraces_OTOP,
     frameSize: new Vector2(gridCells(45), gridCells(45)),
@@ -63,6 +61,9 @@ const pillars_otop = new Sprite({
     frameSize: new Vector2(gridCells(45), gridCells(45)),
 });
 mainScene.addChild(pillars_otop);
+
+const textDisplay = new Text();
+mainScene.addChild(textDisplay);
 
 const camera = new Camera();
 mainScene.addChild(camera);
