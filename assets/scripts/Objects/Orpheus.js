@@ -79,7 +79,11 @@ class Orpheus extends GameObject {
 
     step(delta) {
         const distance = moveTowards(this, this.destPos, 2);
-        console.log(this.position.x + "," + this.position.y);
+        
+        if(DEBUG) {
+            console.log(this.position.x + "," + this.position.y);
+        }
+        
         const hasArrived = distance <= 1;
         if(hasArrived) {
             this.position.x = this.destPos.x;

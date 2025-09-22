@@ -1,0 +1,15 @@
+.sceneWindow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background-color: black;
+    color: white;
+    opacity: 0.7;
+    z-index: 0;
+    visibility: visible;
+    padding: 8px;
+    text-align: center;
+    border: 2px solid lightslategray;
+    border-radius: 20px;
+}
