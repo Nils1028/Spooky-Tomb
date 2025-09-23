@@ -6,10 +6,14 @@
     background-color: black;
     color: white;
     opacity: 0.7;
-    z-index: 0;
-    visibility: visible;
+    z-index: 3;
+    visibility: hidden;
     padding: 8px;
     text-align: center;
     border: 2px solid lightslategray;
     border-radius: 20px;
+}
+
+.sceneWindow h2 {
+    color: darkred;
 }

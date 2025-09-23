@@ -4,7 +4,7 @@ class Orpheus extends GameObject {
             position: new Vector2(x, y),
         });
 
-        this.destPos = new Vector2(gridCells(9), gridCells(24));   
+        this.destPos = this.position;   
         this.heldDirections = [];
         
         document.addEventListener("keydown", (event) => {

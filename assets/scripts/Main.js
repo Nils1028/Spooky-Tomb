@@ -41,7 +41,7 @@ const pillars = new Sprite({
 });
 mainScene.addChild(pillars);
 
-const orpheus = new Orpheus(gridCells(9), gridCells(24));
+const orpheus = new Orpheus(gridCells(8), gridCells(24));
 mainScene.addChild(orpheus);
 
 const entrances_otop = new Sprite({

@@ -6,6 +6,7 @@ class Text extends GameObject {
 
         this.isInteractionPos = false;
         this.pressedOpenKey = false;
+        this.exitPopup = document.getElementById("sceneWindow");
         
         events.on(ORPHEUS_MOVED, this, pos => {
             this.position = pos;
@@ -30,25 +31,57 @@ class Text extends GameObject {
     }
 
     wrapText(text, maxWidth, font, fontSize) {
-        const words = text.split(' ');
-        let lines = [];
-        let currentLine = '';
+    const words = text.split(' ');
+    let lines = [];
+    let currentLine = '';
 
-        words.forEach(word => {
+    function splitLongWord(word) {
+        let parts = [];
+        let temp = '';
+
+        for (let char of word) {
+            const test = temp + char;
+            const width = font.getAdvanceWidth(test, fontSize);
+
+            if (width > maxWidth) {
+                parts.push(temp);
+                temp = char;
+            } else {
+                temp = test;
+            }
+        }
+        if (temp) parts.push(temp);
+        return parts;
+    }
+
+    words.forEach(word => {
+        // Wort selbst prüfen
+        if (font.getAdvanceWidth(word, fontSize) > maxWidth) {
+            const splitParts = splitLongWord(word);
+
+            splitParts.forEach((part, idx) => {
+                if (idx === 0 && currentLine) {
+                    lines.push(currentLine);
+                    currentLine = '';
+                }
+                lines.push(part);
+            });
+        } else {
             const testLine = currentLine ? currentLine + ' ' + word : word;
-            const metrics = font.getAdvanceWidth(testLine, fontSize);
+            const width = font.getAdvanceWidth(testLine, fontSize);
 
-            if (metrics > maxWidth) {
+            if (width > maxWidth) {
                 lines.push(currentLine);
                 currentLine = word;
             } else {
                 currentLine = testLine;
             }
-        });
+        }
+    });
 
-        if (currentLine) lines.push(currentLine);
-        return lines;
-    }
+    if (currentLine) lines.push(currentLine);
+    return lines;
+}
 
     drawImage(ctx, drawPosX, drawPosY) {
         if(this.pressedOpenKey && this.isInteractionPos) {
@@ -59,20 +92,31 @@ class Text extends GameObject {
             ctx.textRendering = 'geometricPrecision';
 
             const font = resources.pixelOperator;
-            const text = String(resources.texts.stories[0]);
+            const text = String(resources.texts.stories[1]);
             const fontSize = 8;
             const maxWidth = 120;
             const lineHeight = fontSize + 2;
 
             const lines = this.wrapText(text, maxWidth, font, fontSize);
+            let drawingPosX = this.position.x - (164 / 4) * 3;
 
             lines.forEach((line, i) => {
-                const y = this.position.y - 90 + i * lineHeight;
-                const path = font.getPath(line, this.position.x - (164 / 4) * 3, y, fontSize);
-                path.draw(ctx);
+                if(i < 20) {
+                    const y = this.position.y - 90 + i * lineHeight;
+                    const path = font.getPath(line, drawingPosX, y, fontSize);
+                    path.draw(ctx);
+                } else {
+                    drawingPosX = this.position.x + 5;
+                    const y = this.position.y - 90 + i * lineHeight - (20 * lineHeight);
+                    const path = font.getPath(line, drawingPosX, y, fontSize);
+                    path.draw(ctx);
+                }
             });
+        } else if(this.pressedOpenKey && UPPER_EXIT_POSITIONS.has(this.position.x + "," + this.position.y)) {
+            this.exitPopup.style.visibility = "visible";
         } else {
             this.speechBubble.drawImage(ctx, drawPosX, drawPosY);
+            this.exitPopup.style.visibility = "hidden";
         }
     }
 }

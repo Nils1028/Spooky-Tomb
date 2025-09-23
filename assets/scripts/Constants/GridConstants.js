@@ -141,3 +141,7 @@ for(i = 240; i <= 336; i += CELL_SIZE) {
 //
 INTERACTION_POSITIONS.add("80,272");
 INTERACTION_POSITIONS.add("96,272");
+
+// Upper Exit interaction positions
+UPPER_EXIT_POSITIONS.add("144,272");
+UPPER_EXIT_POSITIONS.add("160,272");
