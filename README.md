@@ -12,3 +12,4 @@ Demo: [https://suchti18.github.io/Spooky-Tomb/](https://suchti18.github.io/Spook
 | `a` | Left          |
 | `s` | Down          |
 | `d` | Right         |
+| `space` | interact         |

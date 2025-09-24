@@ -7,6 +7,11 @@ class Text extends GameObject {
         this.isInteractionPos = false;
         this.pressedOpenKey = false;
         this.exitPopup = document.getElementById("sceneWindow");
+        this.scene6Btn = document.getElementById("scene6");
+        this.scene12Btn = document.getElementById("scene12");
+        this.scene14Btn = document.getElementById("scene14");
+        this.scene32Btn = document.getElementById("scene32");
+        this.entrancePopup = document.getElementById("entranceWindow");
         
         events.on(ORPHEUS_MOVED, this, pos => {
             this.position = pos;
@@ -113,10 +118,39 @@ class Text extends GameObject {
                 }
             });
         } else if(this.pressedOpenKey && UPPER_EXIT_POSITIONS.has(this.position.x + "," + this.position.y)) {
-            this.exitPopup.style.visibility = "visible";
+            this.exitPopup.style.display = "block";
+            this.scene6Btn.style.display = "inline-block";
+            this.scene12Btn.style.display = "none";
+            this.scene14Btn.style.display = "none";
+            this.scene32Btn.style.display = "none";
+        } else if(this.pressedOpenKey && UPPER_EXIT_2_POSITIONS.has(this.position.x + "," + this.position.y)) {
+            this.exitPopup.style.display = "block";
+            this.scene6Btn.style.display = "none";
+            this.scene12Btn.style.display = "inline-block";
+            this.scene14Btn.style.display = "none";
+            this.scene32Btn.style.display = "none";
+        } else if(this.pressedOpenKey && RIGHT_EXIT_POSITIONS.has(this.position.x + "," + this.position.y)) {
+            this.exitPopup.style.display = "block";
+            this.scene6Btn.style.display = "none";
+            this.scene12Btn.style.display = "none";
+            this.scene14Btn.style.display = "inline-block";
+            this.scene32Btn.style.display = "none";
+        } else if(this.pressedOpenKey && LOWER_EXIT_POSITIONS.has(this.position.x + "," + this.position.y)) {
+            this.exitPopup.style.display = "block";
+            this.scene6Btn.style.display = "none";
+            this.scene12Btn.style.display = "none";
+            this.scene14Btn.style.display = "none";
+            this.scene32Btn.style.display = "inline-block";
+        } else if(this.pressedOpenKey && ENTRANCE_POSITIONS.has(this.position.x + "," + this.position.y)) {
+            this.entrancePopup.style.display = "block";
         } else {
             this.speechBubble.drawImage(ctx, drawPosX, drawPosY);
-            this.exitPopup.style.visibility = "hidden";
+            this.exitPopup.style.display = "none";
+            this.scene6Btn.style.display = "none";
+            this.scene12Btn.style.display = "none";
+            this.scene14Btn.style.display = "none";
+            this.scene32Btn.style.display = "none";
+            this.entrancePopup.style.display = "none";
         }
     }
 }
