@@ -143,6 +143,13 @@ class Text extends GameObject {
             this.scene32Btn.style.display = "inline-block";
         } else if(this.pressedOpenKey && ENTRANCE_POSITIONS.has(this.position.x + "," + this.position.y)) {
             this.entrancePopup.style.display = "block";
+        } else if(this.isInteractionPos) {
+            const exclamationMark = new Sprite({
+                resource: resources.images.exclamationMark,
+                frameSize: new Vector2(32 * 8, 32),
+            });
+
+            exclamationMark.draw(ctx, this.position.x, this.position.y);
         } else {
             this.speechBubble.drawImage(ctx, drawPosX, drawPosY);
             this.exitPopup.style.display = "none";

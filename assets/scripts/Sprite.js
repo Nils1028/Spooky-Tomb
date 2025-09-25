@@ -37,6 +37,10 @@ class Sprite extends GameObject {
 
     drawImage(ctx, drawPosX, drawPosY) {
         if(!this.resource.isLoaded) {
+            if(DEBUG) {
+                console.log("Resource has not been loaded");
+            }
+            
             return;
         }
 
