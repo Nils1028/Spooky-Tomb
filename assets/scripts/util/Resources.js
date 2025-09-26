@@ -3,7 +3,8 @@ class Resources {
         this.toLoad = {
             explorpheus: "./assets/images/explorpheus.png",
             book: "./assets/images/Openbook.png",
-            exclamationMark: "./assets/images/ExclamationMark.png",
+            uiSymbols: "./assets/images/uiSymbols.png",
+            keyboardSymbols: "./assets/images/Keyboard Extras.png",
             map_ground: "./assets/images/Map/Ground.png",
             map_entrances: "./assets/images/Map/Entrances.png",
             map_borders: "./assets/images/Map/Borders.png",

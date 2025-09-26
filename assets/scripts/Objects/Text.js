@@ -12,6 +12,22 @@ class Text extends GameObject {
         this.scene14Btn = document.getElementById("scene14");
         this.scene32Btn = document.getElementById("scene32");
         this.entrancePopup = document.getElementById("entranceWindow");
+        this.uiSymbols = new Sprite({
+            resource: resources.images.uiSymbols,
+            frameSize: new Vector2(16, 16),
+            vFrames: 8,
+            hFrames: 16,
+            frame: 47
+        });
+        this.keyboardSymbols = new Sprite({
+            resource: resources.images.keyboardSymbols,
+            frameSize: new Vector2(32, 16),
+            vFrames: 8,
+            hFrames: 4,
+            frame: 10
+        });
+        this.animationTime = 1000
+        this.time = 0;
         
         events.on(ORPHEUS_MOVED, this, pos => {
             this.position = pos;
@@ -32,7 +48,17 @@ class Text extends GameObject {
     }
 
     step(_delta) {
-        // Overwrite this function!
+        if(this.time >= this.animationTime) {
+            if(this.uiSymbols.frame === 48) {
+                this.uiSymbols.frame = 49;
+            } else {
+                this.uiSymbols.frame = 48;
+            }
+
+            this.time = 0
+        } else {
+            this.time += _delta;
+        }
     }
 
     wrapText(text, maxWidth, font, fontSize) {
@@ -144,12 +170,8 @@ class Text extends GameObject {
         } else if(this.pressedOpenKey && ENTRANCE_POSITIONS.has(this.position.x + "," + this.position.y)) {
             this.entrancePopup.style.display = "block";
         } else if(this.isInteractionPos) {
-            const exclamationMark = new Sprite({
-                resource: resources.images.exclamationMark,
-                frameSize: new Vector2(32 * 8, 32),
-            });
-
-            exclamationMark.draw(ctx, this.position.x, this.position.y);
+            this.uiSymbols.draw(ctx, this.position.x + CELL_SIZE, this.position.y - CELL_SIZE);
+            this.keyboardSymbols.draw(ctx, this.position.x - 8, this.position.y + CELL_SIZE * 7);
         } else {
             this.speechBubble.drawImage(ctx, drawPosX, drawPosY);
             this.exitPopup.style.display = "none";
