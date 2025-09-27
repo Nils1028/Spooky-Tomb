@@ -41,6 +41,12 @@ const pillars = new Sprite({
 });
 mainScene.addChild(pillars);
 
+const objects = new Sprite({
+    resource: resources.images.map_objects,
+    frameSize: new Vector2(gridCells(45), gridCells(45)),
+});
+mainScene.addChild(objects);
+
 const orpheus = new Orpheus(gridCells(8), gridCells(24));
 mainScene.addChild(orpheus);
 
@@ -61,6 +67,12 @@ const pillars_otop = new Sprite({
     frameSize: new Vector2(gridCells(45), gridCells(45)),
 });
 mainScene.addChild(pillars_otop);
+
+const objects_otop = new Sprite({
+    resource: resources.images.map_objects_OTOP,
+    frameSize: new Vector2(gridCells(45), gridCells(45)),
+});
+mainScene.addChild(objects_otop);
 
 const textDisplay = new Text();
 mainScene.addChild(textDisplay);

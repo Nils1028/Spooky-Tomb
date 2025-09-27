@@ -10,10 +10,12 @@ class Resources {
             map_borders: "./assets/images/Map/Borders.png",
             map_walls: "./assets/images/Map/Walls.png",
             map_pillars: "./assets/images/Map/Pillars.png",
+            map_objects: "./assets/images/Map/Objects.png",
             // OTOP = On Top Of Player
             map_entraces_OTOP: "./assets/images/Map/Entrances (On top of Player).png",
             map_walls_OTOP: "./assets/images/Map/Walls (On top of Player).png",
             map_pillars_OTOP: "./assets/images/Map/Pillars (On top of Player).png",
+            map_objects_OTOP: "./assets/images/Map/Objects (On top of Player).png"
         };
 
         this.pixelOperator = null;
