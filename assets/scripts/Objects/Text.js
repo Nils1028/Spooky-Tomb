@@ -32,7 +32,7 @@ class Text extends GameObject {
         events.on(ORPHEUS_MOVED, this, pos => {
             this.position = pos;
 
-            if(INTERACTION_POSITIONS.has(pos.x + "," + pos.y)) {
+            if(INTERACTION_POSITIONS.has(pos.toString())) {
                 this.isInteractionPos = true;
             } else {
                 this.isInteractionPos = false;
@@ -62,57 +62,56 @@ class Text extends GameObject {
     }
 
     wrapText(text, maxWidth, font, fontSize) {
-    const words = text.split(' ');
-    let lines = [];
-    let currentLine = '';
+        const words = text.split(' ');
+        let lines = [];
+        let currentLine = '';
 
-    function splitLongWord(word) {
-        let parts = [];
-        let temp = '';
+        function splitLongWord(word) {
+            let parts = [];
+            let temp = '';
 
-        for (let char of word) {
-            const test = temp + char;
-            const width = font.getAdvanceWidth(test, fontSize);
+            for (let char of word) {
+                const test = temp + char;
+                const width = font.getAdvanceWidth(test, fontSize);
 
-            if (width > maxWidth) {
-                parts.push(temp);
-                temp = char;
-            } else {
-                temp = test;
-            }
-        }
-        if (temp) parts.push(temp);
-        return parts;
-    }
-
-    words.forEach(word => {
-        // Wort selbst prüfen
-        if (font.getAdvanceWidth(word, fontSize) > maxWidth) {
-            const splitParts = splitLongWord(word);
-
-            splitParts.forEach((part, idx) => {
-                if (idx === 0 && currentLine) {
-                    lines.push(currentLine);
-                    currentLine = '';
+                if (width > maxWidth) {
+                    parts.push(temp);
+                    temp = char;
+                } else {
+                    temp = test;
                 }
-                lines.push(part);
-            });
-        } else {
-            const testLine = currentLine ? currentLine + ' ' + word : word;
-            const width = font.getAdvanceWidth(testLine, fontSize);
-
-            if (width > maxWidth) {
-                lines.push(currentLine);
-                currentLine = word;
-            } else {
-                currentLine = testLine;
             }
+            if (temp) parts.push(temp);
+            return parts;
         }
-    });
 
-    if (currentLine) lines.push(currentLine);
-    return lines;
-}
+        words.forEach(word => {
+            if (font.getAdvanceWidth(word, fontSize) > maxWidth) {
+                const splitParts = splitLongWord(word);
+
+                splitParts.forEach((part, idx) => {
+                    if (idx === 0 && currentLine) {
+                        lines.push(currentLine);
+                        currentLine = '';
+                    }
+                    lines.push(part);
+                });
+            } else {
+                const testLine = currentLine ? currentLine + ' ' + word : word;
+                const width = font.getAdvanceWidth(testLine, fontSize);
+
+                if (width > maxWidth) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = testLine;
+                }
+            }
+        });
+
+        if (currentLine) lines.push(currentLine);
+        return lines;
+    }
 
     drawImage(ctx, drawPosX, drawPosY) {
         if(this.pressedOpenKey && this.isInteractionPos) {
@@ -143,31 +142,31 @@ class Text extends GameObject {
                     path.draw(ctx);
                 }
             });
-        } else if(this.pressedOpenKey && UPPER_EXIT_POSITIONS.has(this.position.x + "," + this.position.y)) {
+        } else if(this.pressedOpenKey && UPPER_EXIT_POSITIONS.has(this.position.toString())) {
             this.exitPopup.style.display = "block";
             this.scene6Btn.style.display = "inline-block";
             this.scene12Btn.style.display = "none";
             this.scene14Btn.style.display = "none";
             this.scene32Btn.style.display = "none";
-        } else if(this.pressedOpenKey && UPPER_EXIT_2_POSITIONS.has(this.position.x + "," + this.position.y)) {
+        } else if(this.pressedOpenKey && UPPER_EXIT_2_POSITIONS.has(this.position.toString())) {
             this.exitPopup.style.display = "block";
             this.scene6Btn.style.display = "none";
             this.scene12Btn.style.display = "inline-block";
             this.scene14Btn.style.display = "none";
             this.scene32Btn.style.display = "none";
-        } else if(this.pressedOpenKey && RIGHT_EXIT_POSITIONS.has(this.position.x + "," + this.position.y)) {
+        } else if(this.pressedOpenKey && RIGHT_EXIT_POSITIONS.has(this.position.toString())) {
             this.exitPopup.style.display = "block";
             this.scene6Btn.style.display = "none";
             this.scene12Btn.style.display = "none";
             this.scene14Btn.style.display = "inline-block";
             this.scene32Btn.style.display = "none";
-        } else if(this.pressedOpenKey && LOWER_EXIT_POSITIONS.has(this.position.x + "," + this.position.y)) {
+        } else if(this.pressedOpenKey && LOWER_EXIT_POSITIONS.has(this.position.toString())) {
             this.exitPopup.style.display = "block";
             this.scene6Btn.style.display = "none";
             this.scene12Btn.style.display = "none";
             this.scene14Btn.style.display = "none";
             this.scene32Btn.style.display = "inline-block";
-        } else if(this.pressedOpenKey && ENTRANCE_POSITIONS.has(this.position.x + "," + this.position.y)) {
+        } else if(this.pressedOpenKey && ENTRANCE_POSITIONS.has(this.position.toString())) {
             this.entrancePopup.style.display = "block";
         } else if(this.isInteractionPos) {
             this.uiSymbols.draw(ctx, this.position.x + CELL_SIZE, this.position.y - CELL_SIZE);
