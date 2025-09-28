@@ -204,46 +204,71 @@ BLOCKED_POSITIONS.add("240,528");
 
     INTERACTION_POSITIONS.set("256,304", resources.texts.facts[3]);
 
+    INTERACTION_POSITIONS.set("48,480", resources.texts.stories[7]);
+    INTERACTION_POSITIONS.set("64,464", resources.texts.stories[7]);
+    INTERACTION_POSITIONS.set("80,464", resources.texts.stories[7]);
+    INTERACTION_POSITIONS.set("96,464", resources.texts.stories[7]);
+    INTERACTION_POSITIONS.set("112,464", resources.texts.stories[8]);
+    INTERACTION_POSITIONS.set("128,464", resources.texts.stories[8]);
+    INTERACTION_POSITIONS.set("144,464", resources.texts.stories[8]);
+    INTERACTION_POSITIONS.set("160,464", resources.texts.stories[7]);
+    INTERACTION_POSITIONS.set("176,464", resources.texts.stories[7]);
+    INTERACTION_POSITIONS.set("192,464", resources.texts.stories[7]);
+    INTERACTION_POSITIONS.set("208,480", resources.texts.stories[7]);
+
+    INTERACTION_POSITIONS.set("48,288", resources.texts.stories[9]);
+    INTERACTION_POSITIONS.set("64,288", resources.texts.stories[9]);
+    INTERACTION_POSITIONS.set("80,304", resources.texts.stories[9]);
+    INTERACTION_POSITIONS.set("80,320", resources.texts.stories[9]);
+    INTERACTION_POSITIONS.set("64,336", resources.texts.stories[9]);
+    INTERACTION_POSITIONS.set("48,336", resources.texts.stories[9]);
+
     // Upper Room
     INTERACTION_POSITIONS.set("288,256", resources.texts.facts[2]);
     INTERACTION_POSITIONS.set("288,272", resources.texts.facts[2]);
     
-    INTERACTION_POSITIONS.set("304,128", null);
-    INTERACTION_POSITIONS.set("320,128", null);
+    INTERACTION_POSITIONS.set("304,128", resources.texts.facts[7]);
+    INTERACTION_POSITIONS.set("320,128", resources.texts.facts[7]);
 
     INTERACTION_POSITIONS.set("384,128", resources.texts.facts[4]);
     INTERACTION_POSITIONS.set("400,128", resources.texts.facts[4]);
     INTERACTION_POSITIONS.set("416,128", resources.texts.facts[4]);
 
-    INTERACTION_POSITIONS.set("560,128", null);
-    INTERACTION_POSITIONS.set("576,128", null);
+    INTERACTION_POSITIONS.set("560,128", resources.texts.facts[5]);
+    INTERACTION_POSITIONS.set("576,128", resources.texts.facts[5]);
 
-    INTERACTION_POSITIONS.set("608,128", resources.texts.facts[5]);
-    INTERACTION_POSITIONS.set("624,128", resources.texts.facts[5]);
+    INTERACTION_POSITIONS.set("608,128", resources.texts.stories[10]);
+    INTERACTION_POSITIONS.set("624,128", resources.texts.stories[10]);
 
     INTERACTION_POSITIONS.set("288,176", resources.texts.facts[0]);
     INTERACTION_POSITIONS.set("304,176", resources.texts.facts[0]);
     INTERACTION_POSITIONS.set("320,176", resources.texts.facts[0]);
     INTERACTION_POSITIONS.set("336,192", resources.texts.facts[0]);
 
-    INTERACTION_POSITIONS.set("336,208", null);
-    INTERACTION_POSITIONS.set("320,224", null);
-    INTERACTION_POSITIONS.set("304,224", null);
-    INTERACTION_POSITIONS.set("288,224", null);
+    INTERACTION_POSITIONS.set("336,208", resources.texts.stories[11]);
+    INTERACTION_POSITIONS.set("320,224", resources.texts.stories[11]);
+    INTERACTION_POSITIONS.set("304,224", resources.texts.stories[11]);
+    INTERACTION_POSITIONS.set("288,224", resources.texts.stories[11]);
 
-    INTERACTION_POSITIONS.set("448,176", null);
-    INTERACTION_POSITIONS.set("464,176", null);
-    INTERACTION_POSITIONS.set("480,176", null);
-    INTERACTION_POSITIONS.set("496,176", null);
-    INTERACTION_POSITIONS.set("512,192", null);
-    INTERACTION_POSITIONS.set("512,208", null);
-    INTERACTION_POSITIONS.set("496,224", null);
-    INTERACTION_POSITIONS.set("480,224", null);
-    INTERACTION_POSITIONS.set("464,224", null);
-    INTERACTION_POSITIONS.set("448,224", null);
-    INTERACTION_POSITIONS.set("432,208", null);
-    INTERACTION_POSITIONS.set("432,192", null);
+    INTERACTION_POSITIONS.set("448,176", resources.texts.stories[13]);
+    INTERACTION_POSITIONS.set("464,176", resources.texts.stories[13]);
+    INTERACTION_POSITIONS.set("480,176", resources.texts.stories[13]);
+    INTERACTION_POSITIONS.set("496,176", resources.texts.stories[13]);
+    INTERACTION_POSITIONS.set("512,192", resources.texts.stories[13]);
+    INTERACTION_POSITIONS.set("512,208", resources.texts.stories[13]);
+    INTERACTION_POSITIONS.set("496,224", resources.texts.stories[13]);
+    INTERACTION_POSITIONS.set("480,224", resources.texts.stories[13]);
+    INTERACTION_POSITIONS.set("464,224", resources.texts.stories[13]);
+    INTERACTION_POSITIONS.set("448,224", resources.texts.stories[13]);
+    INTERACTION_POSITIONS.set("432,208", resources.texts.stories[13]);
+    INTERACTION_POSITIONS.set("432,192", resources.texts.stories[13]);
 
+    INTERACTION_POSITIONS.set("640,176", resources.texts.stories[12]);
+    INTERACTION_POSITIONS.set("624,176", resources.texts.stories[12]);
+    INTERACTION_POSITIONS.set("608,176", resources.texts.stories[12]);
+    INTERACTION_POSITIONS.set("592,192", resources.texts.stories[12]);
+    INTERACTION_POSITIONS.set("592,208", resources.texts.stories[12]);
+    
     INTERACTION_POSITIONS.set("640,224", resources.texts.facts[1]);
     INTERACTION_POSITIONS.set("624,224", resources.texts.facts[1]);
     INTERACTION_POSITIONS.set("608,224", resources.texts.facts[1]);
@@ -251,6 +276,10 @@ BLOCKED_POSITIONS.add("240,528");
     INTERACTION_POSITIONS.set("608,256", resources.texts.facts[1]);
     INTERACTION_POSITIONS.set("624,256", resources.texts.facts[1]);
     INTERACTION_POSITIONS.set("640,256", resources.texts.facts[1]);
+
+    INTERACTION_POSITIONS.set("608,288", resources.texts.facts[8]);
+    INTERACTION_POSITIONS.set("624,288", resources.texts.facts[8]);
+    INTERACTION_POSITIONS.set("640,288", resources.texts.facts[8]);
 
     // Lower Room
     INTERACTION_POSITIONS.set("272,640", resources.texts.stories[2]);
@@ -273,6 +302,12 @@ BLOCKED_POSITIONS.add("240,528");
     INTERACTION_POSITIONS.set("384,400", resources.texts.stories[6]);
     INTERACTION_POSITIONS.set("400,400", resources.texts.stories[6]);
     INTERACTION_POSITIONS.set("416,400", resources.texts.stories[6]);
+
+    INTERACTION_POSITIONS.set("448,416", resources.texts.facts[6]);
+    INTERACTION_POSITIONS.set("464,416", resources.texts.facts[6]);
+    INTERACTION_POSITIONS.set("480,416", resources.texts.facts[6]);
+    INTERACTION_POSITIONS.set("496,416", resources.texts.facts[6]);
+    INTERACTION_POSITIONS.set("512,416", resources.texts.facts[6]);
 })();
 
 // Upper Exit interaction positions
