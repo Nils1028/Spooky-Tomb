@@ -46,12 +46,17 @@ class Text extends GameObject {
             if(event.code === "Space") {
                 this.pressedOpenKey = true;
             }
+        });
 
+        const handleInputForWelcomePopup = (event) => {
             if(this.welcomePopup) {
                 this.welcomePopup.style.display = "none";
                 this.welcomePopup = null;
+                document.removeEventListener("keypress", handleInputForWelcomePopup);
             }
-        });
+        };
+
+        document.addEventListener("keypress", handleInputForWelcomePopup);
     }
 
     step(_delta) {
