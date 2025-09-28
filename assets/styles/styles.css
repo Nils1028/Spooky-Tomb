@@ -32,7 +32,7 @@ p.bubble {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-15%, -190px);
+    transform: translate(-50px, -190px);
 
     width: 300px;
     height: auto;

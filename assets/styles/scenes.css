@@ -3,9 +3,8 @@
     top: 50%;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.7);
     color: white;
-    opacity: 0.7;
     z-index: 3;
     display: none;
     padding: 8px;
@@ -35,4 +34,10 @@
 .sceneWindow a:hover {
     background-color: slategray;
     transform: scale(1.03);
+}
+
+.sceneWindow img {
+    image-rendering: pixelated;
+    width: 120px;
+    height: auto;
 }

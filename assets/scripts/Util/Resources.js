@@ -33,6 +33,8 @@ class Resources {
                 this.images[key].isLoaded = true;
             }
         })
+
+        this.loadTexts();
     }
 
     async loadFont() {
@@ -61,6 +63,17 @@ class Resources {
         } catch(err) {
             console.error('Error while loading json:', err);
         }
+    }
+
+    waitForTexts(interval = 50) {
+        return new Promise(resolve => {
+            const check = setInterval(() => {
+                if (this.texts !== null && this.texts !== undefined) {
+                    clearInterval(check);
+                    resolve(this.texts);
+                }
+            }, interval);
+        });
     }
 }
 

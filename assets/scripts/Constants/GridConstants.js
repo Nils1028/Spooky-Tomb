@@ -1,6 +1,6 @@
 const CELL_SIZE = 16
 const BLOCKED_POSITIONS = new Set();
-const INTERACTION_POSITIONS = new Set();
+const INTERACTION_POSITIONS = new Map();
 const ENTRANCE_POSITIONS = new Set();
 const UPPER_EXIT_POSITIONS = new Set();
 const UPPER_EXIT_2_POSITIONS = new Set();
@@ -190,30 +190,35 @@ BLOCKED_POSITIONS.add("400,656");
 BLOCKED_POSITIONS.add("416,656");
 
 // Interaction spots
-// First Room
-INTERACTION_POSITIONS.add("80,272");
-INTERACTION_POSITIONS.add("96,272");
 
-INTERACTION_POSITIONS.add("208,272");
-INTERACTION_POSITIONS.add("224,272");
+(async () => {
+    await resources.waitForTexts();
 
-// Upper Room
-INTERACTION_POSITIONS.add("304,128");
-INTERACTION_POSITIONS.add("320,128");
+    // First Room
+    INTERACTION_POSITIONS.set("80,272", resources.texts.stories[1]);
+    INTERACTION_POSITIONS.set("96,272", resources.texts.stories[1]);
 
-INTERACTION_POSITIONS.add("384,128");
-INTERACTION_POSITIONS.add("400,128");
-INTERACTION_POSITIONS.add("416,128");
+    INTERACTION_POSITIONS.set("208,272", resources.texts.stories[0]);
+    INTERACTION_POSITIONS.set("224,272", resources.texts.stories[0]);
 
-INTERACTION_POSITIONS.add("560,128");
-INTERACTION_POSITIONS.add("576,128");
+    // Upper Room
+    INTERACTION_POSITIONS.set("304,128", null);
+    INTERACTION_POSITIONS.set("320,128", null);
 
-INTERACTION_POSITIONS.add("608,128");
-INTERACTION_POSITIONS.add("624,128");
+    INTERACTION_POSITIONS.set("384,128", null);
+    INTERACTION_POSITIONS.set("400,128", null);
+    INTERACTION_POSITIONS.set("416,128", null);
 
-// Lower Room
-INTERACTION_POSITIONS.add("");
-INTERACTION_POSITIONS.add("");
+    INTERACTION_POSITIONS.set("560,128", null);
+    INTERACTION_POSITIONS.set("576,128", null);
+
+    INTERACTION_POSITIONS.set("608,128", null);
+    INTERACTION_POSITIONS.set("624,128", null);
+
+    // Lower Room
+    INTERACTION_POSITIONS.set("", null);
+    INTERACTION_POSITIONS.set("", null);
+})();
 
 // Upper Exit interaction positions
 UPPER_EXIT_POSITIONS.add("144,272");

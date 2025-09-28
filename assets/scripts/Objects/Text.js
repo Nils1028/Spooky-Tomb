@@ -135,7 +135,7 @@ class Text extends GameObject {
             ctx.textRendering = 'geometricPrecision';
 
             const font = resources.pixelOperator;
-            const text = String(resources.texts.stories[1]);
+            const text = String(INTERACTION_POSITIONS.get(this.position.toString()));
             const fontSize = 8;
             const maxWidth = 120;
             const lineHeight = fontSize + 2;
@@ -181,7 +181,9 @@ class Text extends GameObject {
             this.scene32Btn.style.display = "inline-block";
         } else if(this.pressedOpenKey && ENTRANCE_POSITIONS.has(this.position.toString())) {
             this.entrancePopup.style.display = "block";
-        } else if(this.isInteractionPos) {
+        } else if(this.isInteractionPos || ENTRANCE_POSITIONS.has(this.position.toString())
+                || LOWER_EXIT_POSITIONS.has(this.position.toString()) || RIGHT_EXIT_POSITIONS.has(this.position.toString())
+                || UPPER_EXIT_2_POSITIONS.has(this.position.toString()) || UPPER_EXIT_POSITIONS.has(this.position.toString())) {
             this.uiSymbols.draw(ctx, this.position.x + CELL_SIZE, this.position.y - CELL_SIZE);
             this.keyboardSymbols.draw(ctx, this.position.x - 8, this.position.y + CELL_SIZE * 7);
         } else {

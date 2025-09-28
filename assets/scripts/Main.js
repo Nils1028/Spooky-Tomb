@@ -6,7 +6,6 @@ canvas.height = GAME.height;
 ctx.imageSmoothingEnabled = false;
 
 resources.loadFont();
-resources.loadTexts();
 
 const gameLoop = new GameLoop(update, draw);
 const mainScene = new GameObject(new Vector2(0, 0));
