@@ -12,6 +12,7 @@ class Text extends GameObject {
         this.scene14Btn = document.getElementById("scene14");
         this.scene32Btn = document.getElementById("scene32");
         this.entrancePopup = document.getElementById("entranceWindow");
+        this.welcomePopup = document.getElementById("welcomeWindow");
         this.uiSymbols = new Sprite({
             resource: resources.images.uiSymbols,
             frameSize: new Vector2(16, 16),
@@ -28,6 +29,7 @@ class Text extends GameObject {
         });
         this.animationTime = 1000
         this.time = 0;
+        this.position = new Vector2(gridCells(8), gridCells(24));
         
         events.on(ORPHEUS_MOVED, this, pos => {
             this.position = pos;
@@ -43,6 +45,11 @@ class Text extends GameObject {
         document.addEventListener("keyup", (event) => {
             if(event.code === "Space") {
                 this.pressedOpenKey = true;
+            }
+
+            if(this.welcomePopup) {
+                this.welcomePopup.style.display = "none";
+                this.welcomePopup = null;
             }
         });
     }
@@ -114,6 +121,12 @@ class Text extends GameObject {
     }
 
     drawImage(ctx, drawPosX, drawPosY) {
+        if(this.welcomePopup) {
+            this.welcomePopup.style.display = "block";
+
+            return;
+        }
+        
         if(this.pressedOpenKey && this.isInteractionPos) {
             // Book img
             ctx.drawImage(resources.images.book.image, this.position.x - 164, this.position.y - 110, 164 * 2, 110 * 2);
