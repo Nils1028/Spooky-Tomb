@@ -1,4 +1,4 @@
-const DEBUG = true;
+const DEBUG = false;
 
 const COLUMS = 30;
 const ROWS = 15;

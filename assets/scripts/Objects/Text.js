@@ -37,7 +37,7 @@ class Text extends GameObject {
         events.on(ORPHEUS_MOVED, this, pos => {
             this.position = pos;
 
-            if(INTERACTION_POSITIONS.has(pos.toString()) || INTERACTION_POSITIONS.has(this.orpheusDest.toString())) {
+            if(INTERACTION_POSITIONS.has(pos.toString())) {
                 this.isInteractionPos = true;
             } else {
                 this.isInteractionPos = false;
@@ -193,7 +193,7 @@ class Text extends GameObject {
             this.scene32Btn.style.display = "inline-block";
         } else if(this.pressedOpenKey && ENTRANCE_POSITIONS.has(this.position.toString())) {
             this.entrancePopup.style.display = "block";
-        } else if(this.isInteractionPos || ENTRANCE_POSITIONS.has(this.position.toString())
+        } else if(this.isInteractionPos || INTERACTION_POSITIONS.has(this.orpheusDest.toString()) || ENTRANCE_POSITIONS.has(this.position.toString())
                 || LOWER_EXIT_POSITIONS.has(this.position.toString()) || RIGHT_EXIT_POSITIONS.has(this.position.toString())
                 || UPPER_EXIT_2_POSITIONS.has(this.position.toString()) || UPPER_EXIT_POSITIONS.has(this.position.toString())
                 || ENTRANCE_POSITIONS.has(this.orpheusDest.toString())
@@ -201,8 +201,13 @@ class Text extends GameObject {
                 || UPPER_EXIT_2_POSITIONS.has(this.orpheusDest.toString()) || UPPER_EXIT_POSITIONS.has(this.orpheusDest.toString())) {
             this.exclamationMark.draw(ctx, this.position.x + CELL_SIZE, this.position.y - CELL_SIZE);
             this.keyboardSymbols.draw(ctx, this.position.x - 8, this.position.y + CELL_SIZE * 7);
+            this.exitPopup.style.display = "none";
+            this.scene6Btn.style.display = "none";
+            this.scene12Btn.style.display = "none";
+            this.scene14Btn.style.display = "none";
+            this.scene32Btn.style.display = "none";
+            this.entrancePopup.style.display = "none";
         } else {
-            this.speechBubble.drawImage(ctx, drawPosX, drawPosY);
             this.exitPopup.style.display = "none";
             this.scene6Btn.style.display = "none";
             this.scene12Btn.style.display = "none";
@@ -210,5 +215,7 @@ class Text extends GameObject {
             this.scene32Btn.style.display = "none";
             this.entrancePopup.style.display = "none";
         }
+
+        this.speechBubble.drawImage(ctx, drawPosX, drawPosY);
     }
 }
