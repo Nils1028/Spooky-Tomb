@@ -13,13 +13,6 @@ class Text extends GameObject {
         this.scene32Btn = document.getElementById("scene32");
         this.entrancePopup = document.getElementById("entranceWindow");
         this.welcomePopup = document.getElementById("welcomeWindow");
-        this.uiSymbols = new Sprite({
-            resource: resources.images.uiSymbols,
-            frameSize: new Vector2(16, 16),
-            vFrames: 8,
-            hFrames: 16,
-            frame: 47
-        });
         this.keyboardSymbols = new Sprite({
             resource: resources.images.keyboardSymbols,
             frameSize: new Vector2(32, 16),
@@ -27,7 +20,15 @@ class Text extends GameObject {
             hFrames: 4,
             frame: 10
         });
-        this.animationTime = 1000
+        this.exclamationMark = new Sprite({
+            resource: resources.images.exclamationMark,
+            frameSize: new Vector2(1024, 1024),
+            vFrames: 1,
+            hFrames: 8,
+            frame: 0,
+            scale: 0.015625
+        });
+        this.animationTime = 200
         this.time = 0;
         this.position = new Vector2(gridCells(8), gridCells(24));
         
@@ -61,10 +62,10 @@ class Text extends GameObject {
 
     step(_delta) {
         if(this.time >= this.animationTime) {
-            if(this.uiSymbols.frame === 48) {
-                this.uiSymbols.frame = 49;
+            if(this.exclamationMark.frame === 7) {
+                this.exclamationMark.frame = 1;
             } else {
-                this.uiSymbols.frame = 48;
+                this.exclamationMark.frame += 1;
             }
 
             this.time = 0
@@ -189,7 +190,7 @@ class Text extends GameObject {
         } else if(this.isInteractionPos || ENTRANCE_POSITIONS.has(this.position.toString())
                 || LOWER_EXIT_POSITIONS.has(this.position.toString()) || RIGHT_EXIT_POSITIONS.has(this.position.toString())
                 || UPPER_EXIT_2_POSITIONS.has(this.position.toString()) || UPPER_EXIT_POSITIONS.has(this.position.toString())) {
-            this.uiSymbols.draw(ctx, this.position.x + CELL_SIZE, this.position.y - CELL_SIZE);
+            this.exclamationMark.draw(ctx, this.position.x + CELL_SIZE, this.position.y - CELL_SIZE);
             this.keyboardSymbols.draw(ctx, this.position.x - 8, this.position.y + CELL_SIZE * 7);
         } else {
             this.speechBubble.drawImage(ctx, drawPosX, drawPosY);

@@ -223,6 +223,8 @@ BLOCKED_POSITIONS.add("240,528");
     INTERACTION_POSITIONS.set("64,336", resources.texts.stories[9]);
     INTERACTION_POSITIONS.set("48,336", resources.texts.stories[9]);
 
+    INTERACTION_POSITIONS.set("208,400", resources.texts.facts[9]);
+
     // Upper Room
     INTERACTION_POSITIONS.set("288,256", resources.texts.facts[2]);
     INTERACTION_POSITIONS.set("288,272", resources.texts.facts[2]);

@@ -12,4 +12,7 @@ Demo: [https://suchti18.github.io/Spooky-Tomb/](https://suchti18.github.io/Spook
 | `a` | Left          |
 | `s` | Down          |
 | `d` | Right         |
-| `space` | interact         |
+| `space` | Interact         |
+
+# Credits
+Exclamation Mark made by [Bont](https://bontt.itch.io/exclamation-mark)

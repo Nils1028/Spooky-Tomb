@@ -5,6 +5,7 @@ class Resources {
             book: "./assets/images/Openbook.png",
             uiSymbols: "./assets/images/uiSymbols.png",
             keyboardSymbols: "./assets/images/Keyboard Extras.png",
+            exclamationMark: "./assets/images/ExclamationMark.png",
             map_ground: "./assets/images/Map/Ground.png",
             map_entrances: "./assets/images/Map/Entrances.png",
             map_borders: "./assets/images/Map/Borders.png",
