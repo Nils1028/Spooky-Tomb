@@ -11,3 +11,4 @@ const D_UP = "D_UP";
 const SPACE_UP = "SPACE_UP";
 
 const ORPHEUS_MOVED = "ORPHEUS_MOVED";
+const NEW_ORPHEUS_DEST = "NEW_ORPHEUS_DEST";

@@ -74,6 +74,7 @@ class Orpheus extends GameObject {
 
         if(isFree(BLOCKED_POSITIONS, nextDest)) {
             this.destPos = nextDest;
+            events.emit(NEW_ORPHEUS_DEST, this.destPos);
         }
     }
 

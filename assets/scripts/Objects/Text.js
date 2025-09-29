@@ -26,21 +26,27 @@ class Text extends GameObject {
             vFrames: 1,
             hFrames: 8,
             frame: 0,
+            // 1 / (1024 / 16) = 
             scale: 0.015625
         });
-        this.animationTime = 200
+        this.animationTime = 150
         this.time = 0;
         this.position = new Vector2(gridCells(8), gridCells(24));
+        this.orpheusDest = new Vector2(gridCells(8), gridCells(24));
         
         events.on(ORPHEUS_MOVED, this, pos => {
             this.position = pos;
 
-            if(INTERACTION_POSITIONS.has(pos.toString())) {
+            if(INTERACTION_POSITIONS.has(pos.toString()) || INTERACTION_POSITIONS.has(this.orpheusDest.toString())) {
                 this.isInteractionPos = true;
             } else {
                 this.isInteractionPos = false;
                 this.pressedOpenKey = false;
             }
+        })
+
+        events.on(NEW_ORPHEUS_DEST, this, newDest => {
+            this.orpheusDest = newDest;
         })
 
         document.addEventListener("keyup", (event) => {
@@ -189,7 +195,10 @@ class Text extends GameObject {
             this.entrancePopup.style.display = "block";
         } else if(this.isInteractionPos || ENTRANCE_POSITIONS.has(this.position.toString())
                 || LOWER_EXIT_POSITIONS.has(this.position.toString()) || RIGHT_EXIT_POSITIONS.has(this.position.toString())
-                || UPPER_EXIT_2_POSITIONS.has(this.position.toString()) || UPPER_EXIT_POSITIONS.has(this.position.toString())) {
+                || UPPER_EXIT_2_POSITIONS.has(this.position.toString()) || UPPER_EXIT_POSITIONS.has(this.position.toString())
+                || ENTRANCE_POSITIONS.has(this.orpheusDest.toString())
+                || LOWER_EXIT_POSITIONS.has(this.orpheusDest.toString()) || RIGHT_EXIT_POSITIONS.has(this.orpheusDest.toString())
+                || UPPER_EXIT_2_POSITIONS.has(this.orpheusDest.toString()) || UPPER_EXIT_POSITIONS.has(this.orpheusDest.toString())) {
             this.exclamationMark.draw(ctx, this.position.x + CELL_SIZE, this.position.y - CELL_SIZE);
             this.keyboardSymbols.draw(ctx, this.position.x - 8, this.position.y + CELL_SIZE * 7);
         } else {
