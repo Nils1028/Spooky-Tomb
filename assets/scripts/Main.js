@@ -104,6 +104,14 @@ function draw() {
     ctx.restore();
 }
 
+function startBgAudio() {
+    const audio = document.getElementById("bg-audio");
+    audio.muted = false;
+    audio.volume = 0.4;
+    audio.play();
+}
+
 resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener("resize", resizeCanvas);
+document.addEventListener("keydown", startBgAudio, { once: true });
 gameLoop.start();

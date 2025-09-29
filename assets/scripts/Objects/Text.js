@@ -59,11 +59,10 @@ class Text extends GameObject {
             if(this.welcomePopup) {
                 this.welcomePopup.style.display = "none";
                 this.welcomePopup = null;
-                document.removeEventListener("keypress", handleInputForWelcomePopup);
             }
         };
 
-        document.addEventListener("keypress", handleInputForWelcomePopup);
+        document.addEventListener("keypress", handleInputForWelcomePopup, { once: true });
     }
 
     step(_delta) {
