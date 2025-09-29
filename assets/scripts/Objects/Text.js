@@ -45,7 +45,7 @@ class Text extends GameObject {
 
         document.addEventListener("keyup", (event) => {
             if(event.code === "Space") {
-                this.pressedOpenKey = true;
+                this.pressedOpenKey = !this.pressedOpenKey;
             }
         });
 
