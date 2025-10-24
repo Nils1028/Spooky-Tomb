@@ -2,7 +2,7 @@
 
 Scene (No. 66) for the Summer of Making Grand Survey Expedition.
 
-Demo: [https://nils1028.github.io/Spooky-Tomb/](https://nils1028.github.io/Spooky-Tomb/)
+Demo: [https://nils1024.github.io/Spooky-Tomb/](https://nils1024.github.io/Spooky-Tomb/)
 <br>
 Link to the game with all other scenes included: [https://isle.a.hackclub.dev/scenes/66](https://isle.a.hackclub.dev/scenes/66)
 
